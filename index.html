@@ -1,1 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Anniversary</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #ffe6f0);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+      transition: opacity 1s ease;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff4081;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .start-btn {
+      background: #ff69b4;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .start-btn:hover {
+      transform: scale(1.05);
+      background: #ff1493;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .memory-section {
+      display: none;
+      background: white;
+      min-height: 100vh;
+      padding: 40px 10px;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px 0;
+    }
+
+    .memory {
+      padding: 20px;
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .memory img {
+      border-radius: 12px;
+      max-width: 90%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .caption {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #b30059;
+      text-align: center;
+    }
+
+    .memory::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      background: #ff69b4;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      width: 4px;
+      background-color: #ffb6c1;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+
+    .memory.left {
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .memory.left::before {
+      right: -6px;
+    }
+
+    .memory.right {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .memory.right::before {
+      left: -6px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .timeline::before {
+        left: 8px;
+      }
+
+      .memory {
+        align-items: flex-start !important;
+        text-align: left !important;
+        padding-left: 30px;
+      }
+
+      .memory::before {
+        left: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Landing Page -->
+  <div class="screen" id="landing">
+    <h1>Happy 1-Year Anniversary! 💖</h1>
+    <button class="start-btn" onclick="startMemories()">Our little scrapbook 📸</button>
+  </div>
+
+  <!-- Memory Timeline Section -->
+  <div class="memory-section" id="memoryLane">
+    <div class="timeline">
+
+      <div class="memory left">
+        <img src="5.jpg" alt="Memory 1">
+        <div class="caption">Our very first photo together 💕</div>
+      </div>
+
+      <div class="memory right">
+        <img src="8.jpg" alt="Memory 2">
+        <div class="caption">Aug 5 10:55</div>
+      </div>
+
+      <div class="memory left">
+        <img src="4.jpg" alt="Memory 3">
+        <div class="caption">Aug 8, First meet after the confession🌙</div>
+      </div>
+
+      <div class="memory right">
+        <img src="9..jpg" alt="Memory 4">
+        <div class="caption">The best birthday!</div>
+      </div>
+
+      <div class="memory left">
+        <img src="6.jpg" alt="Memory 5">
+        <div class="caption">Your cute Goofy side</div>
+      </div>
+
+      <div class="memory right">
+        <img src="7.jpg" alt="Memory 6">
+        <div class="caption">When you looked like a panda wearing that nose strip</div>
+      </div>
+
+      <div class="memory left">
+        <img src="2.jpg" alt="Memory 7">
+        <div class="caption">Playing with filter on Video call.Always loved this filter.</div>
+      </div>
+
+
+      <div class="memory left">
+        <img src="3.jpg" alt="Memory 9">
+        <div class="caption">That cute little road trip🚗</div>
+      </div>
+
+      <div class="memory right">
+        <img src="1.jpg" alt="Memory 10">
+        <div class="caption">And here we are... One year stronger 💞</div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function startMemories() {
+      document.getElementById('landing').style.display = 'none';
+      document.getElementById('memoryLane').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
